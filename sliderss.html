@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css"
+        integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            box-sizing: border-box;
+            padding: 0;
+        }
+
+        .main {
+            height: 100vh;
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: wheat;
+            /* border: 1px solid; */
+        }
+
+        .mainslider {
+            height: 80vh;
+            width: 80%;
+            overflow: hidden;
+            /* border: 2px solid red; */
+        }
+
+        .slider {
+            height: 100%;
+            width: 500%;
+            display: flex;
+            transition: all 0.5s linear;
+            /* border: 2px solid lime; */
+        }
+
+        .slide {
+            height: 100%;
+            width: 20%;
+        }
+
+        .circle {
+            height: 50px;
+            width: 50px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 30px;
+            font-weight: bolder;
+            border-radius: 50px;
+            background-color: white;
+            cursor: pointer;
+            border: 1px solid;
+        }
+
+        .img1 {
+            height: 100%;
+            width: 100%;
+        }
+    </style>
+
+</head>
+
+<body>
+    <div class="main">
+        <div class="circle">
+            <i class="fa-solid fa-chevron-left"></i>
+        </div>
+        <div class="mainslider">
+
+            <div class="slider">
+                <div class="slide">
+                    <img class="img1" src="./1.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img class="img1" src="./2.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img class="img1" src="./3.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img class="img1" src="./4.jpg" alt="">
+                </div>
+                <div class="slide">
+                    <img class="img1" src="./1.jpg" alt="">
+                </div>
+            </div>
+
+        </div>
+        <div class="circle">
+            <i class="fa-solid fa-chevron-right"></i>
+        </div>
+    </div>
+
+    <script>
+
+        let left = document.querySelector(".fa-chevron-left")
+        console.log(left);
+        let sli = document.querySelector(".slider")
+        let slid = document.querySelectorAll(".slide")
+        console.log(slid);
+
+        let right = document.querySelector(".fa-chevron-right")
+        console.log(right);
+
+        let count = 0
+
+        left.addEventListener("click", function () {
+
+            count--
+
+            if (count < 0) {
+
+                count = slid.length - 1
+            }
+            sli.style.marginLeft = ` -${count * 100}% `
+
+        })
+
+        right.addEventListener("click", function () {
+
+            count++
+
+            if (count > slid.length - 1) {
+
+                count = 0
+
+
+            }
+            sli.style.marginLeft = ` -${count * 100}% `
+
+        })
+
+    </script>
+
+
+
+</body>
+
+</html>
